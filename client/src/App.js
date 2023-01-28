@@ -17,12 +17,13 @@ function App() {
     Axios.post('http://localhost:3001/api/insert', {
         movieName: movieName, 
         movieReview: review
-    }).then(() => {
-        alert("Successful insert")
     })
-  }
+    setMovieReviewList([
+        ...movieReviewList,
+        {movieName, movieReview: review} ])
+    }
   
-    return (
+  return (
     <div className="App">
       <h1>CRUD APPLICATION</h1>
     
