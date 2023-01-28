@@ -5,7 +5,7 @@ import Axios from 'axios'
 function App() {
   const [movieName, setMovieName] = useState('');
   const [review, setReview] = useState('');
-  const [movieReviewList, setMovieReviewList] = useState('')
+  const [movieReviewList, setMovieReviewList] = useState([])
 
   useEffect(() =>{
     Axios.get('http://localhost:3001/api/get').then((response) => {
@@ -37,6 +37,15 @@ function App() {
         })}   />
         
         <button onClick={submitReview}>Submit</button>
+
+        {movieReviewList.map((val) => {
+            return (
+            <>
+            <h2>Movie Name: {val.movieName} </h2>
+            <p>Movie Review: {val.movieReview}</p>
+            </>
+            )
+        })}
 
         
       </div>
