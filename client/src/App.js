@@ -20,12 +20,16 @@ function App() {
     })
     setMovieReviewList([
         ...movieReviewList,
-        {movieName, movieReview: review} ])
+        {movieName: movieName, movieReview: review} ])
+    }
+
+    const deleteReview = (movie) => {
+        Axios.delete(`http://localhost:3001/api/delete/${movie}`)
     }
   
   return (
     <div className="App">
-      <h1>CRUD APPLICATION</h1>
+      <h1>Movie Reviews</h1>
     
     <div className='form'>
         <label>Movie Name</label>
@@ -41,10 +45,15 @@ function App() {
 
         {movieReviewList.map((val) => {
             return (
-            <>
-            <h2>Movie Name: {val.movieName} </h2>
-            <p>Movie Review: {val.movieReview}</p>
-            </>
+            <div className="card">
+            <h2> {val.movieName} </h2>
+            <p> {val.movieReview}</p>
+
+            <button onClick={deleteReview}>Delete</button>
+            <input type="text" id="update"/>
+            <button>Update</button>
+            </div>
+            
             )
         })}
 
