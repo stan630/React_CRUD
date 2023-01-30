@@ -49,7 +49,7 @@ function App() {
             <h2> {val.movieName} </h2>
             <p> {val.movieReview}</p>
 
-            <button onClick={deleteReview}>Delete</button>
+            <button onClick={() => {deleteReview(val.movieName)}}>Delete</button>
             <input type="text" id="update"/>
             <button>Update</button>
             </div>
