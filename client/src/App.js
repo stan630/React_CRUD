@@ -5,7 +5,6 @@ import Axios from 'axios'
 function App() {
   const [movieName, setMovieName] = useState('');
   const [review, setReview] = useState('');
-  const [movieList, setMovieList] = useState([]);
   const [movieReviewList, setMovieReviewList] = useState([])
   const [newReview, setNewReview] = useState('')
 
@@ -20,11 +19,6 @@ function App() {
         movieName: movieName, 
         movieReview: review
     })
-
-    setMovieList([
-        ...movieReviewList,
-        { movieName: movieName, movieReview: review}
-    ])
 
     setMovieReviewList([
         ...movieReviewList,
